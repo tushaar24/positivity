@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashScreenFragment">
+
+    <fragment
+        android:id="@+id/walkThroughFragment"
+        android:name="com.example.positivity.ui.fragments.walkthrough.WalkThroughFragment"
+        android:label="fragment_walk_through"
+        tools:layout="@layout/fragment_walk_through" >
+        <action
+            android:id="@+id/action_walkThroughFragment_to_positive"
+            app:destination="@id/positive"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popUpTo="@id/walkThroughFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/positive"
+        android:name="com.example.positivity.ui.fragments.PositiveQuotes"
+        android:label="fragment_positive_quotes"
+        tools:layout="@layout/fragment_positive_quotes" >
+        <action
+            android:id="@+id/action_positive_to_endingFragment2"
+            app:destination="@id/endingFragment2"
+            app:popUpTo="@id/positive"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/endingFragment2"
+        android:name="com.example.positivity.ui.fragments.ending.EndingFragment"
+        android:label="fragment_ending"
+        tools:layout="@layout/fragment_ending" >
+        <action
+            android:id="@+id/action_endingFragment2_to_positive"
+            app:destination="@id/positive"
+            app:popUpTo="@id/endingFragment2"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.example.positivity.ui.fragments.SplashScreenFragment"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreenFragment_to_walkThroughFragment"
+            app:destination="@id/walkThroughFragment"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popUpTo="@id/splashScreenFragment"/>
+    </fragment>
+</navigation>
